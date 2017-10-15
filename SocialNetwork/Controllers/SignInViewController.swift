@@ -3,6 +3,7 @@ import FBSDKCoreKit
 import FBSDKLoginKit
 import Firebase
 import FirebaseAuth
+import SwiftKeychainWrapper
 
 class SignInViewController: UIViewController {
 
@@ -12,7 +13,13 @@ class SignInViewController: UIViewController {
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+  }
+
+  override func viewDidAppear(_ animated: Bool) {
+    // If the user has already logged in, let them continue.
+    if let _ = KeychainWrapper.standard.string(forKey: KEYCHAIN_KEY) {
+      self.performSegue(withIdentifier: "segueFeedViewController", sender: nil)
+    }
   }
 
   @IBAction func signInWithCustomAccountAction(_ sender: Any) {
@@ -27,10 +34,14 @@ class SignInViewController: UIViewController {
               print("Unable to create a new user, error is:\(authError)")
             } else if let authUser = user {
               print("User logged in successfully:\(authUser)")
+              KeychainWrapper.standard.set(authUser.uid, forKey: KEYCHAIN_KEY)
+              self.performSegue(withIdentifier: "segueFeedViewController", sender: nil)
             }
           })
         } else if let authUser = user {
           print("User logged in successfully with existing account :\(authUser)")
+          KeychainWrapper.standard.set(authUser.uid, forKey: KEYCHAIN_KEY)
+          self.performSegue(withIdentifier: "segueFeedViewController", sender: nil)
         }
       })
     } else {
@@ -64,6 +75,8 @@ class SignInViewController: UIViewController {
       }
       if let firUser = user {
         print("Successfully authenticated with Firebase, user is: \(firUser)")
+        KeychainWrapper.standard.set(firUser.uid, forKey: KEYCHAIN_KEY)
+        self.performSegue(withIdentifier: "segueFeedViewController", sender: nil)
       }
     }
   }

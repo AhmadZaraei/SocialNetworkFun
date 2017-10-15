@@ -127,11 +127,27 @@
                     <connections>
                         <outlet property="emailAddressTextField" destination="H2t-0v-Cme" id="94I-E9-tuK"/>
                         <outlet property="passwordTextField" destination="ah2-R3-Gze" id="GUt-O2-Vz9"/>
+                        <segue destination="Di0-D4-ePi" kind="show" identifier="segueFeedViewController" id="8hp-vq-Mo2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.23188405797103" y="136.95652173913044"/>
+        </scene>
+        <!--Feed View Controller-->
+        <scene sceneID="utY-47-ILQ">
+            <objects>
+                <viewController id="Di0-D4-ePi" customClass="FeedViewController" customModule="SocialNetwork" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wbt-Ef-XvU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0" green="0.58628696203231812" blue="0.53447610139846802" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="1E1-vc-YoG"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eFG-o0-F11" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1248" y="137"/>
         </scene>
     </scenes>
     <resources>
