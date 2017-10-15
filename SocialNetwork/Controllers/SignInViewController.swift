@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  SocialNetwork
-//
-//  Created by Ahmad Zaraei on 10/13/17.
-//  Copyright © 2017 Ahmad Zaraei. All rights reserved.
-//
-
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
@@ -28,11 +20,17 @@ class SignInViewController: UIViewController {
       Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
         if let authError = error {
           print("Unable to login using using e-mail, error is:\(authError)")
-          // TODO(ahmadzaraei): Show an error to the user.
-          return
-        }
-        if let authUser = user {
-          print("User logged in successfully :\(authUser)")
+          // TODO(ahmadzaraei): Show an error to the user, and ask them if they actually want
+          // an account :), since this is a toy project, just create an account.
+          Auth.auth().createUser(withEmail: email, password: password, completion: { (user, error) in
+            if let authError = error {
+              print("Unable to create a new user, error is:\(authError)")
+            } else if let authUser = user {
+              print("User logged in successfully:\(authUser)")
+            }
+          })
+        } else if let authUser = user {
+          print("User logged in successfully with existing account :\(authUser)")
         }
       })
     } else {

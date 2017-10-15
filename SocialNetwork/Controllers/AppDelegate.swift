@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  SocialNetwork
-//
-//  Created by Ahmad Zaraei on 10/13/17.
-//  Copyright © 2017 Ahmad Zaraei. All rights reserved.
-//
-
 import UIKit
 import Firebase
 import FBSDKLoginKit
