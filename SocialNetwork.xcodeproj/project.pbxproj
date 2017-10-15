@@ -18,6 +18,7 @@
 		FA89B5E81F92E6D7004F52C1 /* CustomShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89B5E71F92E6D7004F52C1 /* CustomShadowView.swift */; };
 		FA89B5EC1F92EA1E004F52C1 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89B5EB1F92EA1E004F52C1 /* CustomTextField.swift */; };
 		FA89B5EE1F92ED2E004F52C1 /* FacebookButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89B5ED1F92ED2E004F52C1 /* FacebookButton.swift */; };
+		FA89B5F01F9305E6004F52C1 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA89B5EF1F9305E6004F52C1 /* FeedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		FA89B5E71F92E6D7004F52C1 /* CustomShadowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomShadowView.swift; sourceTree = "<group>"; };
 		FA89B5EB1F92EA1E004F52C1 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		FA89B5ED1F92ED2E004F52C1 /* FacebookButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookButton.swift; sourceTree = "<group>"; };
+		FA89B5EF1F9305E6004F52C1 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 			children = (
 				FA89B5BE1F91A221004F52C1 /* AppDelegate.swift */,
 				FA89B5C01F91A221004F52C1 /* SignInViewController.swift */,
+				FA89B5EF1F9305E6004F52C1 /* FeedViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -264,6 +267,7 @@
 				FA89B5EE1F92ED2E004F52C1 /* FacebookButton.swift in Sources */,
 				FA89B5E61F92E650004F52C1 /* Constants.swift in Sources */,
 				FA89B5EC1F92EA1E004F52C1 /* CustomTextField.swift in Sources */,
+				FA89B5F01F9305E6004F52C1 /* FeedViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
