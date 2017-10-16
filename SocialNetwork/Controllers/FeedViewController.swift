@@ -10,7 +10,9 @@ import UIKit
 import SwiftKeychainWrapper
 import FirebaseAuth
 
-class FeedViewController: UIViewController {
+class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+  @IBOutlet weak var tableView: UITableView!
 
   @IBAction func signoutAction(_ sender: Any) {
     // First actually log the user out of Firebase.
@@ -31,6 +33,24 @@ class FeedViewController: UIViewController {
   }
 
   override func viewDidLoad() {
-        super.viewDidLoad()
+    super.viewDidLoad()
+    self.tableView.delegate = self
+    self.tableView.dataSource = self
+  }
+
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    if let cell = tableView.dequeueReusableCell(withIdentifier: "feedCell") as? FeedTableViewCell {
+      cell.userNameLabel.text = "Zaraei213"
+      cell.caption.text = "Hey, look at this picture, I took this while I was at the Grand Canyon"
+         + "giving a speech!!"
+      return cell
     }
+    // TODO(ahmadzaraei): Consider logging + throwing an error, since this should be an impossible
+    // scenario.
+    return UITableViewCell()
+  }
+
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 5
+  }
 }
