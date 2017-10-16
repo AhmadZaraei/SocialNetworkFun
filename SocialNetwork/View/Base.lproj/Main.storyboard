@@ -230,23 +230,23 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="976" height="360.5"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Dgw-hr-FmQ">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="976" height="65"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="976" height="145.5"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ahmad" translatesAutoresizingMaskIntoConstraints="NO" id="aEp-ji-sLf">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="65" height="65"/>
+                                                                            <rect key="frame" x="0.0" y="40.5" width="65" height="65"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="65" id="f5T-P5-za2"/>
                                                                                 <constraint firstAttribute="height" constant="65" id="giY-eA-Ows"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ahmad Zaraei" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4g-VO-xan">
-                                                                            <rect key="frame" x="73" y="21" width="835" height="23.5"/>
+                                                                            <rect key="frame" x="73" y="61" width="835" height="23.5"/>
                                                                             <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                                                             <color key="textColor" red="0.0" green="0.58823529409999997" blue="0.53333333329999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                             <nil key="highlightedColor"/>
                                                                         </label>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="empty-heart" translatesAutoresizingMaskIntoConstraints="NO" id="i65-qc-9cu">
-                                                                            <rect key="frame" x="916" y="2.5" width="60" height="60"/>
+                                                                            <rect key="frame" x="916" y="43" width="60" height="60"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="60" id="fg7-SG-Rfc"/>
                                                                                 <constraint firstAttribute="height" constant="60" id="nuM-Es-c51"/>
@@ -259,14 +259,17 @@
                                                                     </constraints>
                                                                 </stackView>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cBw-ud-aUZ">
-                                                                    <rect key="frame" x="0.0" y="75" width="976" height="285.5"/>
+                                                                    <rect key="frame" x="0.0" y="155.5" width="976" height="205"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mountain" translatesAutoresizingMaskIntoConstraints="NO" id="qN7-Ff-V1o">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="976" height="230.5"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="976" height="150"/>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                            <constraints>
+                                                                                <constraint firstAttribute="height" constant="150" id="WPc-Nw-t46"/>
+                                                                            </constraints>
                                                                         </imageView>
                                                                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="3uF-81-V7X">
-                                                                            <rect key="frame" x="0.0" y="235.5" width="976" height="50"/>
+                                                                            <rect key="frame" x="0.0" y="155" width="976" height="50"/>
                                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="79q-eB-vHY"/>
