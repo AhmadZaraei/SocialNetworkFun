@@ -35,6 +35,9 @@ class SignInViewController: UIViewController {
             } else if let authUser = user {
               print("User logged in successfully:\(authUser)")
               KeychainWrapper.standard.set(authUser.uid, forKey: KEYCHAIN_KEY)
+
+              let userData = ["Provider" : authUser.providerID]
+              DataService.dataService.createDatabaseUser(uid: authUser.uid, userData: userData)
               self.performSegue(withIdentifier: "segueFeedViewController", sender: nil)
             }
           })
@@ -58,7 +61,6 @@ class SignInViewController: UIViewController {
         if userResult.isCancelled {
           print("User cancelled the FB auth attempt.")
         } else {
-          print("User Successfully logged in. :)")
             let credental = FacebookAuthProvider.credential(
                 withAccessToken: FBSDKAccessToken.current().tokenString)
           self.signInFirebase(credential: credental)
@@ -75,7 +77,12 @@ class SignInViewController: UIViewController {
       }
       if let firUser = user {
         print("Successfully authenticated with Firebase, user is: \(firUser)")
+
         KeychainWrapper.standard.set(firUser.uid, forKey: KEYCHAIN_KEY)
+
+        let userData = ["Provider" : credential.provider]
+        DataService.dataService.createDatabaseUser(uid: firUser.uid, userData: userData)
+
         self.performSegue(withIdentifier: "segueFeedViewController", sender: nil)
       }
     }
