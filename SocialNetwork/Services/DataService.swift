@@ -21,7 +21,12 @@ class DataService {
   var usersReference : DatabaseReference {
     return _usersReference
   }
+
   func createDatabaseUser(uid: String, userData: Dictionary<String, String>) {
     usersReference.child(uid).updateChildValues(userData)
+  }
+
+  func createPost(uid: String, postData: Dictionary<String, String>) {
+    _postsReference.child(uid).updateChildValues(postData)
   }
 }
