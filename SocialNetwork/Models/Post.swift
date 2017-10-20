@@ -9,6 +9,8 @@
 import Foundation
 
 class Post {
+  let postRef = DataService.dataService.postsReference
+
   private var _caption: String!
   private var _likes: Int!
   private var _imageUrl: String!
@@ -44,6 +46,18 @@ class Post {
     }
     if let likes = postData["likes"] as? Int {
       _likes = likes
+    }
+  }
+
+  func adjustLikes(like: Bool) {
+    if like {
+      _likes = _likes + 1
+      postRef.child(_postKey).updateChildValues(["likes" : _likes])
+    } else {
+      if (_likes > 0) {
+        _likes = _likes - 1
+        postRef.child(_postKey).updateChildValues(["likes" : _likes])
+      }
     }
   }
 }
