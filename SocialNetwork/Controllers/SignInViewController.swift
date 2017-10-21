@@ -6,22 +6,22 @@ import FirebaseAuth
 import SwiftKeychainWrapper
 
 class SignInViewController: UIViewController {
-
+  
   @IBOutlet weak var emailAddressTextField: CustomTextField!
-
+  
   @IBOutlet weak var passwordTextField: CustomTextField!
-
+  
   override func viewDidLoad() {
     super.viewDidLoad()
   }
-
+  
   override func viewDidAppear(_ animated: Bool) {
     // If the user has already logged in, let them continue.
     if let _ = KeychainWrapper.standard.string(forKey: KEYCHAIN_KEY) {
       self.performSegue(withIdentifier: "segueFeedViewController", sender: nil)
     }
   }
-
+  
   @IBAction func signInWithCustomAccountAction(_ sender: Any) {
     if let email = emailAddressTextField.text, let password = passwordTextField.text {
       Auth.auth().signIn(withEmail: email, password: password, completion: { (user, error) in
@@ -35,6 +35,9 @@ class SignInViewController: UIViewController {
             } else if let authUser = user {
               print("User logged in successfully:\(authUser)")
               KeychainWrapper.standard.set(authUser.uid, forKey: KEYCHAIN_KEY)
+              
+              let userData = ["Provider" : authUser.providerID]
+              DataService.dataService.createDatabaseUser(uid: authUser.uid, userData: userData)
               self.performSegue(withIdentifier: "segueFeedViewController", sender: nil)
             }
           })
@@ -48,7 +51,7 @@ class SignInViewController: UIViewController {
       // TODO(ahmadzaraei): Show a pop-up to the user.
     }
   }
-
+  
   @IBAction func facebookLoginAction(_ sender: Any) {
     let facebookLogin = FBSDKLoginManager()
     facebookLogin.logIn(withReadPermissions: ["email"], from: self) { (result, error) in
@@ -58,15 +61,14 @@ class SignInViewController: UIViewController {
         if userResult.isCancelled {
           print("User cancelled the FB auth attempt.")
         } else {
-          print("User Successfully logged in. :)")
-            let credental = FacebookAuthProvider.credential(
-                withAccessToken: FBSDKAccessToken.current().tokenString)
+          let credental = FacebookAuthProvider.credential(
+            withAccessToken: FBSDKAccessToken.current().tokenString)
           self.signInFirebase(credential: credental)
         }
       }
     }
   }
-
+  
   func signInFirebase(credential: AuthCredential) {
     Auth.auth().signIn(with: credential) { (user, error) in
       if let authError = error {
@@ -75,7 +77,12 @@ class SignInViewController: UIViewController {
       }
       if let firUser = user {
         print("Successfully authenticated with Firebase, user is: \(firUser)")
+        
         KeychainWrapper.standard.set(firUser.uid, forKey: KEYCHAIN_KEY)
+        
+        let userData = ["Provider" : credential.provider]
+        DataService.dataService.createDatabaseUser(uid: firUser.uid, userData: userData)
+        
         self.performSegue(withIdentifier: "segueFeedViewController", sender: nil)
       }
     }
